@@ -1,4 +1,4 @@
-from pyserv import Command, config
+from pyserv import Command
 from time import time
 
 class logentry(Command):

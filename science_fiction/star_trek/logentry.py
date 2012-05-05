@@ -31,7 +31,10 @@ class logentry(Command):
 				self.msg(chan, "I told the counselor to speek with the ship's senior officers.")
 			elif flag == "a":
 				self.msg(chan, "Commander's log (USS " + ship + ", Commander " + account + "), stardate " + stardate + ".")
-				self.msg(chan, ship + "'s chef is miserable. His food wasn't acceptable this week.")
+				if ship.endswith("s") or ship.endswith("z"):
+					self.msg(chan, ship + "' chef is miserable. His food wasn't acceptable this week.")
+				else:
+					self.msg(chan, ship + "'s chef is miserable. His food wasn't acceptable this week.")
 				self.msg(chan, "It tasted like klingon Gagh and smelled like old muldy cheese.")
 				self.msg(chan, "Next time I'll use the replicator in my quarters to \"cook\"!")
 			elif flag == "o":
@@ -40,7 +43,10 @@ class logentry(Command):
 				self.msg(chan, "But at last I don't think our journey will be without complications.")
 			elif flag == "h":
 				self.msg(chan, "Lietenant's log (USS " + ship + ", Lt. " + account + "), stardate " + stardate + ".")
-				self.msg(chan, "My boyfriend died yesterday at " + ship + "'s battle with the Ascii.")
+				if ship.endswith("s") or ship.endswith("z"):
+					self.msg(chan, "My boyfriend died yesterday at " + ship + "' battle with the Ascii.")
+				else:
+					self.msg(chan, "My boyfriend died yesterday at " + ship + "'s battle with the Ascii.")
 				self.msg(chan, "Rest in peace.")
 			elif flag == "v":
 				self.msg(chan, "Ensign's log (USS " + ship + ", Ensign " + account + "), stardate " + stardate + ".")

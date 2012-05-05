@@ -14,8 +14,8 @@ class logentry(Command):
 		stardate_raw = str(time())
 		stardate = stardate_raw[1:6] + "," + stardate_raw[6]
 		ship = chan[1:].capitalize()
-		account = self.auth(uid)
-		nick = self.nick(uid)
+		account = self.auth(uid).capitalize()
+		nick = self.nick(uid).capitalize()
 		flag = self.getflag(uid, chan)
 		if account != "0":
 			if flag == "n":

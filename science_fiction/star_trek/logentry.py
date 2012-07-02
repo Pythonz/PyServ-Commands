@@ -3,6 +3,7 @@ from time import time
 
 class logentry(Command):
 	help = "Do a Star Trek log entry!"
+
 	def onCommand(self, uid, args):
 		stardate_raw = str(time())
 		stardate = stardate_raw[1:6] + "," + stardate_raw[6]
@@ -17,6 +18,7 @@ class logentry(Command):
 		account = self.auth(uid).capitalize()
 		nick = self.nick(uid).capitalize()
 		flag = self.getflag(uid, chan)
+		
 		if account != "0":
 			if flag == "n":
 				self.msg(chan, "Captain's log (USS " + ship + "), stardate " + stardate + ".")
@@ -31,10 +33,12 @@ class logentry(Command):
 				self.msg(chan, "I told the counselor to speek with the ship's senior officers.")
 			elif flag == "a":
 				self.msg(chan, "Commander's log (USS " + ship + ", Commander " + account + "), stardate " + stardate + ".")
+				
 				if ship.endswith("s") or ship.endswith("z"):
 					self.msg(chan, ship + "' chef is miserable. His food wasn't acceptable this week.")
 				else:
 					self.msg(chan, ship + "'s chef is miserable. His food wasn't acceptable this week.")
+					
 				self.msg(chan, "It tasted like klingon Gagh and smelled like old muldy cheese.")
 				self.msg(chan, "Next time I'll use the replicator in my quarters to \"cook\"!")
 			elif flag == "o":
@@ -43,10 +47,12 @@ class logentry(Command):
 				self.msg(chan, "But at last I don't think our journey will be without complications.")
 			elif flag == "h":
 				self.msg(chan, "Lietenant's log (USS " + ship + ", Lt. " + account + "), stardate " + stardate + ".")
+				
 				if ship.endswith("s") or ship.endswith("z"):
 					self.msg(chan, "My boyfriend died yesterday at " + ship + "' battle with the Ascii.")
 				else:
 					self.msg(chan, "My boyfriend died yesterday at " + ship + "'s battle with the Ascii.")
+					
 				self.msg(chan, "Rest in peace.")
 			elif flag == "v":
 				self.msg(chan, "Ensign's log (USS " + ship + ", Ensign " + account + "), stardate " + stardate + ".")
